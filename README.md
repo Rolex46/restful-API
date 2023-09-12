@@ -1,0 +1,1 @@
+This is a siple REST API that is capable of CRUD functionalities on a person resource
