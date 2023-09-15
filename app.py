@@ -17,7 +17,7 @@ api = Api(app)
 class Home(Resource):
     def get(self):
         response_dict = {
-            "index":"Welcome to this Person restful API"
+            "index":"Welcome to the Person restful API"
         }
 
         response = make_response(
@@ -25,7 +25,7 @@ class Home(Resource):
         )
         return response
     
-api.add_resource(Home,'/')
+api.add_resource(Home,'/api')
 
 class Persons(Resource):
     def get(self):
@@ -51,7 +51,7 @@ class Persons(Resource):
         )
         return response
     
-api.add_resource(Persons, '/persons')
+api.add_resource(Persons, '/api/persons')
 
 class PersonsById(Resource):
     def get(self, id):
@@ -90,7 +90,45 @@ class PersonsById(Resource):
 
         return response
     
-api.add_resource(PersonsById,'/persons/<int:id>')
+api.add_resource(PersonsById,'/api/persons/<int:id>')
+
+class PersonsByName(Resource):
+    def get(self, name):
+        person = Person.query.filter_by(name=name).first()
+        response_dict = person.to_dict()
+        response = make_response(
+            jsonify(response_dict),200
+        )
+        return response
+    
+    def patch(self,name):
+        record = Person.query.filter_by(name=name).first()
+
+        for attr in request.form:
+            setattr(record, attr, request.form[attr])
+        db.session.add(record)
+        db.session.commit()
+
+        response_dict = record.to_dict()
+        response = make_response(
+            jsonify(response_dict),200
+        )
+        return response
+    
+    def delete(self, name):
+        record = Person.query.filter_by(name=name).first()
+        db.session.delete(record)
+        db.session.commit()
+
+        response_dict = {
+            "message": "record deleted successfully"
+        }
+        response = make_response(
+            jsonify(response_dict),200
+        )
+        return response
+
+api.add_resource(PersonsByName,'/api/persons/<string:name>')
 
 if __name__ == '__main__':
     app.run(port=5555)
