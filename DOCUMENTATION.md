@@ -6,7 +6,7 @@ This document provides detailed information on the usage and setup of the Flask 
 
 ### Create Person
 
-- **Endpoint**: `POST /api/persons`
+- **Endpoint**: `POST /api`
 - **Request Format**: JSON
   - Example Request Body:
     ```json
@@ -31,7 +31,7 @@ This document provides detailed information on the usage and setup of the Flask 
 
 ### Get Person
 
-- **Endpoint**: `GET /api/persons/{person_id}`
+- **Endpoint**: `GET /api/{person_id}`
 - **Response Format**: JSON
   - Example Response (Success):
     ```json
@@ -49,7 +49,7 @@ This document provides detailed information on the usage and setup of the Flask 
 
 ### Update Person
 
-- **Endpoint**: `PUT/PATCH /api/persons/{person_id}`
+- **Endpoint**: `PUT/PATCH /api/{person_id}`
 - **Request Format**: JSON
   - Example Request Body:
     ```json
@@ -74,7 +74,7 @@ This document provides detailed information on the usage and setup of the Flask 
 
 ### Delete Person
 
-- **Endpoint**: `DELETE /api/persons/{person_id}`
+- **Endpoint**: `DELETE /api/{person_id}`
 - **Response Format**: JSON
   - Example Response (Success):
     ```json
@@ -99,17 +99,17 @@ This document provides detailed information on the usage and setup of the Flask 
 
 bash
 Copy code
-curl http://localhost:5555/api/persons/1
+curl http://localhost:5555/api/1
 Update Person's Name:
 
 bash
 Copy code
-curl -X PUT -H "Content-Type: application/json" -d '{"name": "Updated Name"}' http://localhost:5555/api/persons/1
+curl -X PUT -H "Content-Type: application/json" -d '{"name": "Updated Name"}' http://localhost:5555/api/1
 Delete a Person:
 
 bash
 Copy code
-curl -X DELETE http://localhost:5555/api/persons/1
+curl -X DELETE http://localhost:5555/api/1
 
 Setup and Deployment
 Clone the repository.

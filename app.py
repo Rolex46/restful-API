@@ -25,7 +25,7 @@ class Home(Resource):
         )
         return response
     
-api.add_resource(Home,'/api')
+api.add_resource(Home,'/')
 
 class Persons(Resource):
     def get(self):
@@ -51,7 +51,7 @@ class Persons(Resource):
         )
         return response
     
-api.add_resource(Persons, '/api/persons')
+api.add_resource(Persons, '/api')
 
 class PersonsById(Resource):
     def get(self, id):
@@ -90,7 +90,7 @@ class PersonsById(Resource):
 
         return response
     
-api.add_resource(PersonsById,'/api/persons/<int:id>')
+api.add_resource(PersonsById,'/api/<int:id>')
 
 class PersonsByName(Resource):
     def get(self, name):
@@ -128,7 +128,7 @@ class PersonsByName(Resource):
         )
         return response
 
-api.add_resource(PersonsByName,'/api/persons/<string:name>')
+api.add_resource(PersonsByName,'/api/<string:name>')
 
 if __name__ == '__main__':
     app.run(port=5555)

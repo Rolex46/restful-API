@@ -32,7 +32,7 @@ Delete Person: DELETE /persons/{name}.
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `api` | `string` |  http://127.0.0.1:5555/api/persons |
+| `api` | `string` |  http://127.0.0.1:5555/api/ |
 
 #### Get person
 
@@ -42,7 +42,7 @@ Delete Person: DELETE /persons/{name}.
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `int` | http://127.0.0.1:5555/api/persons/{id} |
+| `id`      | `int` | http://127.0.0.1:5555/api/{id} |
 
 
 #### Update person
@@ -53,7 +53,7 @@ Delete Person: DELETE /persons/{name}.
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `int` | http://127.0.0.1:5555/api/persons/{id} |
+| `id`      | `int` | http://127.0.0.1:5555/api/{id} |
 
 
 #### delete person
@@ -64,7 +64,7 @@ Delete Person: DELETE /persons/{name}.
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `int` | http://127.0.0.1:5555/api/persons/{id} |
+| `id`      | `int` | http://127.0.0.1:5555/api/{id} |
 
 ```http
   POST /api/persons/
@@ -72,7 +72,7 @@ Delete Person: DELETE /persons/{name}.
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `api'    | `string` | http://127.0.0.1:5555/api/persons |
+| `api'    | `string` | http://127.0.0.1:5555/api |
 
 
 
